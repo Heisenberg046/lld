@@ -1,0 +1,64 @@
+package com.example.lldTicTacToe.service;
+
+import java.util.AbstractMap;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Map;
+
+import com.example.lldTicTacToe.model.Board;
+import com.example.lldTicTacToe.model.PlayingPeice;
+
+public class UtilityActions {
+	
+
+	
+	 PlayingPeice[][] gameBoard;
+	 int size;
+	
+	public List<Map.Entry<Integer, Integer>> getFreeCells() {
+
+		List<Map.Entry<Integer, Integer>> free = new ArrayList<>();
+		for (int i = 0; i < gameBoard.length; i++) {
+			for (int j = 0; j < gameBoard.length; j++) {
+				if (gameBoard[i][j] == null)
+					;
+				Map.Entry<Integer, Integer> rowColumn = new AbstractMap.SimpleEntry<>(i, j);
+				free.add(rowColumn);
+			}
+		}
+		return free;
+	}
+	
+	  public boolean addPiece(int row, int column, PlayingPeice playingPiece) {
+
+	        if(gameBoard[row][column] != null) {
+	            return false;
+	        }
+	        gameBoard[row][column] = playingPiece;
+	        return true;
+	    }
+	  
+	  public void printBoard() {
+
+	        for (int i = 0; i < size; i++) {
+	            for (int j = 0; j < size; j++) {
+	                if (gameBoard[i][j] != null) {
+	                   System.out.print(gameBoard[i][j].type.name() + "   ");
+	                } else {
+	                    System.out.print("    ");
+
+	                }
+	                System.out.print(" | ");
+	            }
+	            System.out.println();
+
+	        }
+	    }
+
+	public UtilityActions(PlayingPeice[][] gameBoard,int size) {
+		super();
+		this.gameBoard = gameBoard;
+		this.size=size;
+	}
+
+}

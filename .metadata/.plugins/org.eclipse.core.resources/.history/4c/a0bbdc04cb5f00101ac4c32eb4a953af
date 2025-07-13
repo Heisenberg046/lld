@@ -1,0 +1,9 @@
+package com.example.lldTicTacToe.model;
+
+public class PeiceTypeO  extends PlayingPeice{
+
+	public PeiceTypeO() {
+		super(PeiceType.O);
+
+}
+}

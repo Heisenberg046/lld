@@ -1,0 +1,5 @@
+package com.example.lldTicTacToe.factory;
+
+public class PlayingPeiceFactory {
+
+}

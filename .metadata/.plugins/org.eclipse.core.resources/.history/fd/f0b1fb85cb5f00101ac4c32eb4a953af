@@ -1,0 +1,24 @@
+package com.example.lldTicTacToe.factory;
+
+import com.example.lldTicTacToe.model.PeiceType;
+import com.example.lldTicTacToe.model.PlayingPeice;
+import com.example.lldTicTacToe.model.PlayingPeiceX;
+
+public class PlayingPeiceFactory {
+	
+	private static final PeiceType X = PeiceType.X;
+	private static final PeiceType O = PeiceType.O;;
+
+	public PlayingPeice getPeice(String peice) {
+		switch (peice) {
+        case X:
+            return new PlayingPeiceX();
+        case O:
+            return new PlayingPeiceO();
+        default:
+            throw new IllegalArgumentException("Invalid symbol: " + peice);
+    }
+		
+	}
+
+}

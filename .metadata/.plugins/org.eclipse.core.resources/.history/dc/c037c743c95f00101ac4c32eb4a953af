@@ -1,0 +1,61 @@
+package com.example.lldTicTacToe.model;
+
+import java.util.AbstractMap;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Map;
+
+public class Board {
+
+	int size;
+	public PlayingPeice[][] board;
+
+	public Board(int size) {
+		super();
+		this.size = size;
+		this.board = new PlayingPeice[size][size];
+	}
+
+	public List<Map.Entry<Integer, Integer>> getFreeCells() {
+
+		List<Map.Entry<Integer, Integer>> free = new ArrayList<>();
+		for (int i = 0; i < board.length; i++) {
+			for (int j = 0; j < board.length; j++) {
+				if (board[i][j] == null)
+					;
+				Map.Entry<Integer, Integer> rowColumn = new AbstractMap.SimpleEntry<>(i, j);
+				free.add(rowColumn);
+			}
+		}
+		return free;
+	}
+	
+	  public boolean addPiece(int row, int column, PlayingPeice playingPiece) {
+
+	        if(board[row][column] != null) {
+	            return false;
+	        }
+	        board[row][column] = playingPiece;
+	        return true;
+	    }
+	  
+	  public void printBoard() {
+
+	        for (int i = 0; i < size; i++) {
+	            for (int j = 0; j < size; j++) {
+	                if (board[i][j] != null) {
+	                   System.out.print(board[i][j].type.name() + "   ");
+	                } else {
+	                    System.out.print("    ");
+
+	                }
+	                System.out.print(" | ");
+	            }
+	            System.out.println();
+
+	        }
+	    }
+
+
+
+}

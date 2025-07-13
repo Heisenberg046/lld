@@ -1,0 +1,42 @@
+package com.example.lldTicTacToe.service;
+
+import java.util.Deque;
+import java.util.LinkedList;
+import java.util.Scanner;
+
+import com.example.lldTicTacToe.factory.PlayingPeiceFactory;
+import com.example.lldTicTacToe.model.Board;
+import com.example.lldTicTacToe.model.Player;
+import com.example.lldTicTacToe.model.PlayingPeice;
+
+public class TicTacToeGame {
+	Deque<Player> players;
+    Board gameBoard;
+
+	public void initializeGame(){
+		System.out.print("enter player names and synbol of each player ");
+        Scanner inputScanner = new Scanner(System.in);
+        String s = inputScanner.nextLine();
+          String[] values = s.split(",");
+          String name1= values[0];
+          String symbol1= values[1];
+          String name2= values[2];
+          String symbol2= values[3];
+          players = new LinkedList<>();
+          
+          PlayingPeiceFactory factory = new PlayingPeiceFactory();
+          Player player1 = new Player(name1, factory.getPeice(symbol1));
+          
+          Player player2 = new Player(name2, factory.getPeice(symbol2));
+          
+          players.add(player1);
+          players.add(player2);
+          
+          gameBoard = new Board(3);
+        
+        
+
+		
+	}
+
+}

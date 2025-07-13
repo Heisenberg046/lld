@@ -1,0 +1,24 @@
+package com.example.lldTicTacToe.service;
+
+import java.util.Deque;
+import java.util.Scanner;
+
+import com.example.lldTicTacToe.model.Board;
+import com.example.lldTicTacToe.model.Player;
+
+public class TicTacToeGame {
+	Deque<Player> players;
+    Board gameBoard;
+
+	public void initializeGame(){
+		System.out.print("enter player names ");
+        Scanner inputScanner = new Scanner(System.in);
+        String s = inputScanner.nextLine();
+        String [] names_and_symbol_input = s.split(",");
+        
+        
+
+		
+	}
+
+}
